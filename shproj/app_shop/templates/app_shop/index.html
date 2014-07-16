@@ -1,0 +1,38 @@
+<html>
+<head>This is simple page</head>
+
+<title>simple</title>
+
+<body>
+
+<!--################  Show All Catalogs###############################-->
+
+<p>Catalog list:</p>
+    {% if latest_catalog_list %}
+        <ul>
+        {% for catalog in latest_catalog_list %}
+            <!--<li><a href="{{ catalog.name }}"</a>{{ catalog.name }}</li>-->
+            <li><a href="/app_shop/{{ catalog.id }}/">{{ catalog.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No products are available.</p>
+    {% endif %}
+
+<!--######################## Show All Products   #######################-->
+
+<p>Product List:</p>
+
+    {% if latest_product_list %}
+    <ul>
+    {% for product in latest_product_list %}
+        <li><a href="/app_shop/{{ product.id }}/">{{ product.name }}</a></li>
+<!-- ex        <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li> -->
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
+
+</body>
+</html>
